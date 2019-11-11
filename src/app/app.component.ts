@@ -45,7 +45,7 @@ export class AppComponent implements OnInit, OnChanges, OnDestroy, DoCheck, Afte
     console.log('App Component - on Destroy');
   }
 
-  ngOnChanges():void {
+  ngOnChanges(changes:SimpleChanges):void {
     console.log('App Component - on Changes - ', changes);
   }
 
