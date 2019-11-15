@@ -8,7 +8,7 @@ import {Stock} from './model/stock';
   styleUrls: ['./stock-item.component.css'],
   //changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class StockItemComponent {
+export class StockItemComponent implements OnInit, OnChanges, OnDestroy, DoCheck,AfterContentChecked,AfterContentInit, AfterViewChecked,AfterViewInit {
 
   @Input() public stock: Stock;
   @Output() private toggleFavorite: EventEmitter<Stock>;
@@ -31,45 +31,45 @@ export class StockItemComponent {
   */
 
   constructor() {
-    this.toggleFavorite=new EventEmitter<Stock>();
+    this.toggleFavorite = new EventEmitter<Stock>();
    }
 
   onToggleFavorite(event) {
     this.toggleFavorite.emit(this.stock);
   }
 
-  ngOnInit():void{
+  ngOnInit(): void {
     console.log('Stock Item Component - On Init');
   }
-  ngAfterViewInit():void{
+  ngAfterViewInit(): void {
     console.log('Stock Item Component - After View Init');
   }
 
-  ngAfterViewChecked():void{
+  ngAfterViewChecked(): void {
     console.log('Stock Item Component - After View Checked');
   }
 
-  ngAfterContentInit():void{
+  ngAfterContentInit(): void {
     console.log('Stock Item Component - After Content Init');
   }
-  ngAfterContentChecked():void{
+  ngAfterContentChecked(): void {
     console.log('Stock Item Component - After Content Checked');
   }
 
-  ngDoCheck():void{
+  ngDoCheck(): void {
     console.log('Stock Item Component - Do Check');
   }
-  ngOnDestroy():void{
+  ngOnDestroy(): void {
     console.log('Stock Item Component - On Destroy');
   }
-  ngOnChanges():void{
-    console.log('Stock Item Component - On Changes');
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log('Stock Item Component - On Changes - ', changes);
   }
 
-  changeStockPrice(){
-    this.stock.price +=5;
-  }
-
+//  changeStockPrice(){
+  //  this.stock.price +=5;
+  //}
+  
   //ngOnInit() {
     /* Chapter2
     this.name='Test Stock Company';
